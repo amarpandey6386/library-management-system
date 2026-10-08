@@ -5,6 +5,7 @@ import { useState } from "react";
 import API_URL from "../services/api";
 import { Link } from "react-router-dom";
 import BookCard from "../components/BookCard";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 function Book() {
 
@@ -53,7 +54,7 @@ function Book() {
 
             <main>
                 <h1>Library Books</h1>
-                {loading && <p>loading books...</p>};
+                {loading && <LoadingSpinner text="Loading Books..."/>}
                 {error && <p>{error}</p>}
 
                 {!loading && !error && books.length === 0 && (<p>No Books Available</p>)}
